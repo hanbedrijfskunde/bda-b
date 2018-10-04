@@ -37,5 +37,7 @@ myData$Democratie <- as.factor(myData$Democratie)
 myData$Studieschuld <- as.numeric(myData$Studieschuld)
 myData$Zorgen <- as.factor(myData$Zorgen)
 myData$Stemrecht <- as.factor(myData$Stemrecht)
+
+str(myData)
 ```
 

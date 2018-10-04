@@ -1790,20 +1790,50 @@ myData &lt;- gsheet2tbl(url)</code></pre>
 <h3>Pas data aan</h3>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbmFtZXMobXlEYXRhKSA8LSBjKFwiVGltZVwiLCBcIkdlc2xhY2h0XCIsIFwiRGVtb2NyYXRpZVwiLCBcIlRvZWxpY2h0aW5nXCIsIFwiU3R1ZGllc2NodWxkXCIsIFwiWm9yZ2VuXCIsIFwiU3RlbXJlY2h0XCIpXG5teURhdGEkR2VzbGFjaHQgPC0gYXMuZmFjdG9yKG15RGF0YSRHZXNsYWNodClcbm15RGF0YSREZW1vY3JhdGllIDwtIGFzLmZhY3RvcihteURhdGEkRGVtb2NyYXRpZSlcbm15RGF0YSRTdHVkaWVzY2h1bGQgPC0gYXMubnVtZXJpYyhteURhdGEkU3R1ZGllc2NodWxkKVxubXlEYXRhJFpvcmdlbiA8LSBhcy5mYWN0b3IobXlEYXRhJFpvcmdlbilcbm15RGF0YSRTdGVtcmVjaHQgPC0gYXMuZmFjdG9yKG15RGF0YSRTdGVtcmVjaHQpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbmFtZXMobXlEYXRhKSA8LSBjKFwiVGltZVwiLCBcIkdlc2xhY2h0XCIsIFwiRGVtb2NyYXRpZVwiLCBcIlRvZWxpY2h0aW5nXCIsIFwiU3R1ZGllc2NodWxkXCIsIFwiWm9yZ2VuXCIsIFwiU3RlbXJlY2h0XCIpXG5teURhdGEkR2VzbGFjaHQgPC0gYXMuZmFjdG9yKG15RGF0YSRHZXNsYWNodClcbm15RGF0YSREZW1vY3JhdGllIDwtIGFzLmZhY3RvcihteURhdGEkRGVtb2NyYXRpZSlcbm15RGF0YSRTdHVkaWVzY2h1bGQgPC0gYXMubnVtZXJpYyhteURhdGEkU3R1ZGllc2NodWxkKVxubXlEYXRhJFpvcmdlbiA8LSBhcy5mYWN0b3IobXlEYXRhJFpvcmdlbilcbm15RGF0YSRTdGVtcmVjaHQgPC0gYXMuZmFjdG9yKG15RGF0YSRTdGVtcmVjaHQpXG5zdHIobXlEYXRhKVxuYGBgIn0= -->
 <pre class="r"><code>colnames(myData) &lt;- c(&quot;Time&quot;, &quot;Geslacht&quot;, &quot;Democratie&quot;, &quot;Toelichting&quot;, &quot;Studieschuld&quot;, &quot;Zorgen&quot;, &quot;Stemrecht&quot;)
 myData$Geslacht &lt;- as.factor(myData$Geslacht)
 myData$Democratie &lt;- as.factor(myData$Democratie)
 myData$Studieschuld &lt;- as.numeric(myData$Studieschuld)
 myData$Zorgen &lt;- as.factor(myData$Zorgen)
-myData$Stemrecht &lt;- as.factor(myData$Stemrecht)</code></pre>
+myData$Stemrecht &lt;- as.factor(myData$Stemrecht)
+str(myData)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ2xhc3NlcyDigJh0YmxfZGbigJksIOKAmHRibOKAmSBhbmQgJ2RhdGEuZnJhbWUnOlx0MCBvYnMuIG9mICA3IHZhcmlhYmxlczpcbiAkIFRpbWUgICAgICAgIDogY2hyIFxuICQgR2VzbGFjaHQgICAgOiBGYWN0b3Igdy8gMCBsZXZlbHM6IFxuICQgRGVtb2NyYXRpZSAgOiBGYWN0b3Igdy8gMCBsZXZlbHM6IFxuICQgVG9lbGljaHRpbmcgOiBjaHIgXG4gJCBTdHVkaWVzY2h1bGQ6IG51bSBcbiAkIFpvcmdlbiAgICAgIDogRmFjdG9yIHcvIDAgbGV2ZWxzOiBcbiAkIFN0ZW1yZWNodCAgIDogRmFjdG9yIHcvIDAgbGV2ZWxzOiBcbiAtIGF0dHIoKiwgXCJzcGVjXCIpPUxpc3Qgb2YgMlxuICAuLiQgY29scyAgIDpMaXN0IG9mIDdcbiAgLi4gLi4kIFRpbWVzdGFtcCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBsaXN0KClcbiAgLi4gLi4gLi4tIGF0dHIoKiwgXCJjbGFzc1wiKT0gY2hyICBcImNvbGxlY3Rvcl9jaGFyYWN0ZXJcIiBcImNvbGxlY3RvclwiXG4gIC4uIC4uJCBXYXQgaXMgamUgZ2VzbGFjaHQ/ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogbGlzdCgpXG4gIC4uIC4uIC4uLSBhdHRyKCosIFwiY2xhc3NcIik9IGNociAgXCJjb2xsZWN0b3JfY2hhcmFjdGVyXCIgXCJjb2xsZWN0b3JcIlxuICAuLiAuLiQgU3RlbGxpbmc6IERlbW9jcmF0aWUgaXMgZGUgYmVzdGUgYmVzdHV1cnN2b3JtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IGxpc3QoKVxuICAuLiAuLiAuLi0gYXR0cigqLCBcImNsYXNzXCIpPSBjaHIgIFwiY29sbGVjdG9yX2NoYXJhY3RlclwiIFwiY29sbGVjdG9yXCJcbiAgLi4gLi4kIEdlZWYgZWVuIHRvZWxpY2h0aW5nICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBsaXN0KClcbiAgLi4gLi4gLi4tIGF0dHIoKiwgXCJjbGFzc1wiKT0gY2hyICBcImNvbGxlY3Rvcl9jaGFyYWN0ZXJcIiBcImNvbGxlY3RvclwiXG4gIC4uIC4uJCBIb2UgaG9vZyB6YWwgamUgc3R1ZGllc2NodWxkIHppam4gbmEgamUgc3R1ZGllPyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogbGlzdCgpXG4gIC4uIC4uIC4uLSBhdHRyKCosIFwiY2xhc3NcIik9IGNociAgXCJjb2xsZWN0b3JfY2hhcmFjdGVyXCIgXCJjb2xsZWN0b3JcIlxuICAuLiAuLiQgSG9ldmVlbCB6b3JnZW4gbWFhayBqZSBqZSBvdmVyIGRlIGhvb2d0ZSB2YW4gamUgc3R1ZGllc2NodWxkPyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IGxpc3QoKVxuICAuLiAuLiAuLi0gYXR0cigqLCBcImNsYXNzXCIpPSBjaHIgIFwiY29sbGVjdG9yX2NoYXJhY3RlclwiIFwiY29sbGVjdG9yXCJcbiAgLi4gLi4kIFpvdSBqZSDDqcOpbiBrZWVyIGplIHN0ZW1yZWNodCB2b29yIGxhbmRlbGlqa2UgdmVya2llemluZ2VuIHdpbGxlbiBvcGdldmVuIHZvb3IgaGV0IGt3aWp0c2NoZWxkZW4gdmFuIGplIHN0dWRpZXNjaHVsZD86IGxpc3QoKVxuICAuLiAuLiAuLi0gYXR0cigqLCBcImNsYXNzXCIpPSBjaHIgIFwiY29sbGVjdG9yX2NoYXJhY3RlclwiIFwiY29sbGVjdG9yXCJcbiAgLi4kIGRlZmF1bHQ6IGxpc3QoKVxuICAuLiAuLi0gYXR0cigqLCBcImNsYXNzXCIpPSBjaHIgIFwiY29sbGVjdG9yX2d1ZXNzXCIgXCJjb2xsZWN0b3JcIlxuICAuLi0gYXR0cigqLCBcImNsYXNzXCIpPSBjaHIgXCJjb2xfc3BlY1wiXG4ifQ== -->
+<pre><code>Classes ‘tbl_df’, ‘tbl’ and 'data.frame':   0 obs. of  7 variables:
+ $ Time        : chr 
+ $ Geslacht    : Factor w/ 0 levels: 
+ $ Democratie  : Factor w/ 0 levels: 
+ $ Toelichting : chr 
+ $ Studieschuld: num 
+ $ Zorgen      : Factor w/ 0 levels: 
+ $ Stemrecht   : Factor w/ 0 levels: 
+ - attr(*, &quot;spec&quot;)=List of 2
+  ..$ cols   :List of 7
+  .. ..$ Timestamp                                                                                                           : list()
+  .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+  .. ..$ Wat is je geslacht?                                                                                                 : list()
+  .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+  .. ..$ Stelling: Democratie is de beste bestuursvorm                                                                       : list()
+  .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+  .. ..$ Geef een toelichting                                                                                                : list()
+  .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+  .. ..$ Hoe hoog zal je studieschuld zijn na je studie?                                                                     : list()
+  .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+  .. ..$ Hoeveel zorgen maak je je over de hoogte van je studieschuld?                                                       : list()
+  .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+  .. ..$ Zou je één keer je stemrecht voor landelijke verkiezingen willen opgeven voor het kwijtschelden van je studieschuld?: list()
+  .. .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_character&quot; &quot;collector&quot;
+  ..$ default: list()
+  .. ..- attr(*, &quot;class&quot;)= chr  &quot;collector_guess&quot; &quot;collector&quot;
+  ..- attr(*, &quot;class&quot;)= chr &quot;col_spec&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQmlnIERhdGEgQW5hbHl0aWNzIgpzdWJ0aXRsZTogIkItY2x1c3RlciIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyMjIExhYWQgbGlicmFyaWVzCgpgYGB7ciBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCBpbmNsdWRlPUZBTFNFLCBwYWdlZC5wcmludD1GQUxTRX0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoZ3NoZWV0KQpsaWJyYXJ5KHBsb3RseSkKYGBgCgojIyMgTGVlcyBkYXRhCgpgYGB7cn0KdXJsIDwtICJodHRwczovL2RvY3MuZ29vZ2xlLmNvbS9zcHJlYWRzaGVldHMvZC8xbWFiZU9qZ0huemFvSUJXdlp5b2R3X0Z0Z1k3b3JwSjBhREFpbmh6V05uSS9lZGl0P3VzcD1zaGFyaW5nIgpteURhdGEgPC0gZ3NoZWV0MnRibCh1cmwpCmBgYAoKIyMjIENvbnRyb2xlZXIga3dhbGl0ZWl0IGRhdGEKCmBgYHtyfQpoZWFkKG15RGF0YSkKc3RyKG15RGF0YSkKc3VtbWFyeShteURhdGEpCmBgYAoKIyMjIFBhcyBkYXRhIGFhbgoKYGBge3J9CmNvbG5hbWVzKG15RGF0YSkgPC0gYygiVGltZSIsICJHZXNsYWNodCIsICJEZW1vY3JhdGllIiwgIlRvZWxpY2h0aW5nIiwgIlN0dWRpZXNjaHVsZCIsICJab3JnZW4iLCAiU3RlbXJlY2h0IikKCm15RGF0YSRHZXNsYWNodCA8LSBhcy5mYWN0b3IobXlEYXRhJEdlc2xhY2h0KQpteURhdGEkRGVtb2NyYXRpZSA8LSBhcy5mYWN0b3IobXlEYXRhJERlbW9jcmF0aWUpCm15RGF0YSRTdHVkaWVzY2h1bGQgPC0gYXMubnVtZXJpYyhteURhdGEkU3R1ZGllc2NodWxkKQpteURhdGEkWm9yZ2VuIDwtIGFzLmZhY3RvcihteURhdGEkWm9yZ2VuKQpteURhdGEkU3RlbXJlY2h0IDwtIGFzLmZhY3RvcihteURhdGEkU3RlbXJlY2h0KQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQmlnIERhdGEgQW5hbHl0aWNzIgpzdWJ0aXRsZTogIkItY2x1c3RlciIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKIyMjIExhYWQgbGlicmFyaWVzCgpgYGB7ciBtZXNzYWdlPUZBTFNFLCB3YXJuaW5nPUZBTFNFLCBpbmNsdWRlPUZBTFNFLCBwYWdlZC5wcmludD1GQUxTRX0KbGlicmFyeSh0aWR5dmVyc2UpCmxpYnJhcnkoZ3NoZWV0KQpsaWJyYXJ5KHBsb3RseSkKYGBgCgojIyMgTGVlcyBkYXRhCgpgYGB7cn0KdXJsIDwtICJodHRwczovL2RvY3MuZ29vZ2xlLmNvbS9zcHJlYWRzaGVldHMvZC8xbWFiZU9qZ0huemFvSUJXdlp5b2R3X0Z0Z1k3b3JwSjBhREFpbmh6V05uSS9lZGl0P3VzcD1zaGFyaW5nIgpteURhdGEgPC0gZ3NoZWV0MnRibCh1cmwpCmBgYAoKIyMjIENvbnRyb2xlZXIga3dhbGl0ZWl0IGRhdGEKCmBgYHtyfQpoZWFkKG15RGF0YSkKc3RyKG15RGF0YSkKc3VtbWFyeShteURhdGEpCmBgYAoKIyMjIFBhcyBkYXRhIGFhbgoKYGBge3J9CmNvbG5hbWVzKG15RGF0YSkgPC0gYygiVGltZSIsICJHZXNsYWNodCIsICJEZW1vY3JhdGllIiwgIlRvZWxpY2h0aW5nIiwgIlN0dWRpZXNjaHVsZCIsICJab3JnZW4iLCAiU3RlbXJlY2h0IikKCm15RGF0YSRHZXNsYWNodCA8LSBhcy5mYWN0b3IobXlEYXRhJEdlc2xhY2h0KQpteURhdGEkRGVtb2NyYXRpZSA8LSBhcy5mYWN0b3IobXlEYXRhJERlbW9jcmF0aWUpCm15RGF0YSRTdHVkaWVzY2h1bGQgPC0gYXMubnVtZXJpYyhteURhdGEkU3R1ZGllc2NodWxkKQpteURhdGEkWm9yZ2VuIDwtIGFzLmZhY3RvcihteURhdGEkWm9yZ2VuKQpteURhdGEkU3RlbXJlY2h0IDwtIGFzLmZhY3RvcihteURhdGEkU3RlbXJlY2h0KQoKc3RyKG15RGF0YSkKYGBgCgo=</div>
 
 
 
